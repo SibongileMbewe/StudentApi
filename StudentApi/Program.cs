@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddSingleton<IStudentRepository, InMemoryStudentRepository>();
 
-// Add Swagger/OpenAPI support
+// Add Swagger support
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(c =>
@@ -29,7 +29,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "Student API V1");
-        c.RoutePrefix = string.Empty; // Optional: Makes Swagger UI the root page
+        c.RoutePrefix = string.Empty; 
     });
 }
 
